@@ -19,6 +19,32 @@
   }
 }
 
+@layer utilities {
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+
+  .bg-gradient-comic {
+    background-image: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+  }
+
+  @keyframes fade-in-from-top {
+    from {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-from-top {
+    animation: fade-in-from-top 0.5s ease-out;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

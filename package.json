@@ -12,6 +12,7 @@
     "type": "tsc --noEmit"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "lucide-react": "^0.503.0",
     "next": "15.3.1",
     "react": "^19.0.0",
