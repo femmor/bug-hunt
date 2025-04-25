@@ -1,4 +1,7 @@
 import { initialTickets } from "@/data";
+import { FaRegCheckCircle } from "react-icons/fa";
+import { BsHourglassSplit } from "react-icons/bs";
+import { LuFileJson2 } from "react-icons/lu";
 
 interface TicketProps {
   params: {
@@ -7,9 +10,21 @@ interface TicketProps {
 }
 
 const TICKET_ICONS = {
-  OPEN: "O",
-  CLOSED: "X",
-  "IN PROGRESS": ">",
+  OPEN: (
+    <div className="text-blue-500 flex gap-1 items-center">
+      <LuFileJson2 /> <span className="text-xs">OPEN</span>
+    </div>
+  ),
+  CLOSED: (
+    <div className="text-green-500 flex gap-1 items-center">
+      <FaRegCheckCircle /> <span className="text-xs">CLOSED</span>
+    </div>
+  ),
+  "IN PROGRESS": (
+    <div className="text-yellow-500 flex gap-1 items-center">
+      <BsHourglassSplit /> <span className="text-xs">IN PROGRESS</span>
+    </div>
+  ),
 };
 
 const Ticket = async ({ params }: TicketProps) => {
