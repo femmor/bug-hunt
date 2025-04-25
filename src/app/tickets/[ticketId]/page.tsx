@@ -28,7 +28,7 @@ const TICKET_ICONS = {
 };
 
 const Ticket = async ({ params }: TicketProps) => {
-  const { ticketId } = await params;
+  const { ticketId } = params;
   const ticket = initialTickets.find((ticket) => ticket.id === ticketId);
 
   if (!ticket) {

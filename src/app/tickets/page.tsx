@@ -8,7 +8,7 @@ const Tickets = () => {
   return (
     <div className="flex flex-1 flex-col gap-y-8">
       <div>
-        <h2 className="text-3xl font-bold tracking-tight">Tickets Pagee</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Tickets Page</h2>
         <p className="text-sm text-muted-foreground">
           All your tickets in one place
         </p>
