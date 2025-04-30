@@ -31,7 +31,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Header />
-        <div className="">{children}</div>
+        <div className="p-8">{children}</div>
       </body>
     </html>
   );
