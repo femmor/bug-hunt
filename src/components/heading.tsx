@@ -9,7 +9,7 @@ interface HeadingProps {
 export const Heading = ({ title, description, separator }: HeadingProps) => {
   return (
     <>
-      <div className="px-8">
+      <div className="px-8 py-4">
         <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
         <p className="text-sm text-muted-foreground">{description}</p>
       </div>

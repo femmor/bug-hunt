@@ -1,5 +1,6 @@
 "use client";
 
+import Placeholder from "@/components/placeholder";
 import { initialTickets } from "@/data";
 import { LoaderCircle } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -34,11 +35,7 @@ const Ticket = ({ params }: TicketProps) => {
   }
 
   if (!ticket) {
-    return (
-      <p className="text-lg text-center py-4 text-gray-500">
-        Ticket not found!
-      </p>
-    );
+    return <Placeholder label={`Ticket not found for id '${ticketId}'`} />;
   }
 
   return (
