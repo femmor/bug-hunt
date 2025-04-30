@@ -5,7 +5,7 @@ import { LuFileJson2 } from "react-icons/lu";
 
 interface TicketProps {
   params: {
-    ticketId: string;
+    ticketId: Promise<string>;
   };
 }
 
@@ -28,7 +28,7 @@ const TICKET_ICONS = {
 };
 
 const Ticket = async ({ params }: TicketProps) => {
-  const { ticketId } = params;
+  const ticketId = await params.ticketId;
   const ticket = initialTickets.find((ticket) => ticket.id === ticketId);
 
   if (!ticket) {

@@ -26,7 +26,7 @@ const Tickets = () => {
             </p>
             <Link
               href={`${ticketsPath}/${ticket.id}`}
-              className="text-blue-500 underline"
+              className="text-sm font-medium text-muted-foreground hover:text-primary cursor-pointer hover:underline"
             >
               View
             </Link>
