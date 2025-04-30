@@ -8,25 +8,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { LuFileJson2 } from "react-icons/lu";
-import { FaRegCheckCircle } from "react-icons/fa";
-import { BsHourglassSplit } from "react-icons/bs";
 import { Separator } from "@/components/ui/separator";
+import { CircleCheckBig, File, Hourglass } from "lucide-react";
 
 const TICKET_ICONS = {
   OPEN: (
     <div className="text-blue-500">
-      <LuFileJson2 title="open" />
+      <File />
     </div>
   ),
   CLOSED: (
     <div className="text-green-500">
-      <FaRegCheckCircle title="closed" />
+      <CircleCheckBig />
     </div>
   ),
   "IN PROGRESS": (
     <div className="text-yellow-500">
-      <BsHourglassSplit title="in progress" />
+      <Hourglass />
     </div>
   ),
 };
