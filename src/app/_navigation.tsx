@@ -10,11 +10,11 @@ const Header = () => {
         <Button
           asChild
           variant="link"
-          className="flex items-center gap-x-2 text-sm font-medium"
+          className="flex items-center gap-x-2 text-lg font-medium"
         >
           <Link href="/">
             <BugOff />
-            BugHunts
+            <span className="text-gray-700">BugHunts</span>
           </Link>
         </Button>
         <div className="flex items-center gap-x-4">
