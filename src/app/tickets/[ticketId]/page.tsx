@@ -1,6 +1,7 @@
 "use client";
 
 import { initialTickets } from "@/data";
+import { LoaderCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface TicketProps {
@@ -25,7 +26,11 @@ const Ticket = ({ params }: TicketProps) => {
   const ticket = initialTickets.find((ticket) => ticket.id === ticketId);
 
   if (!resolvedParams) {
-    return <p className="text-lg text-center py-4 text-gray-500">Loading...</p>;
+    return (
+      <p className="text-lg text-center py-4 text-gray-500">
+        <LoaderCircle className="animate-spin mx-auto my-2 w-20 h-20" />
+      </p>
+    );
   }
 
   if (!ticket) {
