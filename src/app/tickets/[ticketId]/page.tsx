@@ -1,8 +1,10 @@
 "use client";
 
 import Placeholder from "@/components/placeholder";
+import { Button } from "@/components/ui/button";
 import { initialTickets } from "@/data";
 import { LoaderCircle } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface TicketProps {
@@ -35,7 +37,16 @@ const Ticket = ({ params }: TicketProps) => {
   }
 
   if (!ticket) {
-    return <Placeholder label={`Ticket not found for id '${ticketId}'`} />;
+    return (
+      <Placeholder
+        label={`Ticket not found for id '${ticketId}'`}
+        button={
+          <Button className="mt-2" variant="outline">
+            <Link href="/tickets">Back to tickets</Link>
+          </Button>
+        }
+      />
+    );
   }
 
   return (
