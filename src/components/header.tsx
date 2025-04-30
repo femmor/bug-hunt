@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const Header = () => {
   return (
     <nav>
-      <div className="flex align-items justify-between p-4 border-b">
+      <div className="flex align-items justify-between px-8 py-4 border-b">
         <Button
           asChild
           variant="link"
