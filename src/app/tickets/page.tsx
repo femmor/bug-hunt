@@ -11,6 +11,7 @@ import {
 import { LuFileJson2 } from "react-icons/lu";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BsHourglassSplit } from "react-icons/bs";
+import { Separator } from "@/components/ui/separator";
 
 const TICKET_ICONS = {
   OPEN: (
@@ -39,6 +40,9 @@ const Tickets = () => {
           All your tickets in one place
         </p>
       </div>
+
+      <Separator />
+
       <div className="flex flex-1 flex-col items-center gap-y-4 animate-fade-in-from-top">
         {initialTickets.map((ticket) => (
           <Card key={ticket.id} className="w-full max-w-[400px]">
