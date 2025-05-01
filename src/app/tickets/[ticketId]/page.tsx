@@ -1,10 +1,7 @@
-import Loading from "@/components/loading";
-import Placeholder from "@/components/placeholder";
-import { Button } from "@/components/ui/button";
 import TicketItem from "@/features/ticket/components/ticket-item";
 import { getTicketById } from "@/features/ticket/queries/get-ticket";
-import Link from "next/link";
-import { Suspense, use } from "react";
+import { notFound } from "next/navigation";
+import { use } from "react";
 
 type TicketProps = Promise<{ ticketId: string }>;
 
@@ -14,23 +11,12 @@ const Ticket = ({ params }: { params: TicketProps }) => {
   const ticket = use(getTicketById(ticketId));
 
   if (!ticket) {
-    return (
-      <Placeholder
-        label={`Ticket not found for id '${ticketId}'`}
-        button={
-          <Button className="mt-2" variant="outline">
-            <Link href="/tickets">Back to tickets</Link>
-          </Button>
-        }
-      />
-    );
+    notFound();
   }
 
   return (
     <div className="flex justify-center animate-fade-in-from-top">
-      <Suspense fallback={<Loading />}>
-        <TicketItem ticket={ticket} isDetail />
-      </Suspense>
+      <TicketItem ticket={ticket} isDetail />
     </div>
   );
 };
