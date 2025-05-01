@@ -1,10 +1,10 @@
 "use client";
 
+import Loading from "@/components/loading";
 import Placeholder from "@/components/placeholder";
 import { Button } from "@/components/ui/button";
 import { initialTickets } from "@/data";
 import TicketItem from "@/features/ticket/components/ticket-item";
-import { LoaderCircle } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -30,11 +30,7 @@ const Ticket = ({ params }: TicketProps) => {
   const ticket = initialTickets.find((ticket) => ticket.id === ticketId);
 
   if (!resolvedParams) {
-    return (
-      <p className="text-lg text-center py-4 text-gray-500">
-        <LoaderCircle className="animate-spin mx-auto my-2 w-20 h-20" />
-      </p>
-    );
+    return <Loading />;
   }
 
   if (!ticket) {
