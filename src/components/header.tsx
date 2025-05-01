@@ -2,6 +2,7 @@ import { BugOff } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import ThemeSwitcher from "./theme/theme-switcher";
 
 const Header = () => {
   return (
@@ -14,10 +15,12 @@ const Header = () => {
         >
           <Link href="/">
             <BugOff />
-            <span className="text-gray-700">BugHunts</span>
+            <span className="text-gray-700 hover:text-white transition">
+              BugHunts
+            </span>
           </Link>
         </Button>
-        <div className="flex items-center gap-x-4">
+        <div className="flex items-center gap-x-2">
           <Link
             href="/"
             className="text-sm font-medium text-muted-foreground hover:text-primary hover:underline"
@@ -34,6 +37,7 @@ const Header = () => {
               Tickets
             </Button>
           </Link>
+          <ThemeSwitcher />
         </div>
       </div>
     </nav>
