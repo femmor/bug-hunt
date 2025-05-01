@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <Header />
-          <div className="p-8">{children}</div>
+          <main className="p-8">{children}</main>
         </ThemeProvider>
       </body>
     </html>

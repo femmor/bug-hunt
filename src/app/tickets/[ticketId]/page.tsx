@@ -1,37 +1,16 @@
-"use client";
-
-import Loading from "@/components/loading";
 import Placeholder from "@/components/placeholder";
 import { Button } from "@/components/ui/button";
-import { initialTickets } from "@/data";
 import TicketItem from "@/features/ticket/components/ticket-item";
+import { getTicketById } from "@/features/ticket/queries/get-ticket";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { use } from "react";
 
-interface TicketProps {
-  params: Promise<{
-    ticketId: string;
-  }>;
-}
+type TicketProps = Promise<{ ticketId: string }>;
 
-const Ticket = ({ params }: TicketProps) => {
-  const [ticketId, setTicketId] = useState("");
-  const [resolvedParams, setResolvedParams] = useState<{
-    ticketId: string;
-  } | null>(null);
+const Ticket = ({ params }: { params: TicketProps }) => {
+  const { ticketId } = use(params);
 
-  useEffect(() => {
-    params.then((resolved) => {
-      setResolvedParams(resolved);
-      setTicketId(resolved.ticketId);
-    });
-  }, [params]);
-
-  const ticket = initialTickets.find((ticket) => ticket.id === ticketId);
-
-  if (!resolvedParams) {
-    return <Loading />;
-  }
+  const ticket = use(getTicketById(ticketId));
 
   if (!ticket) {
     return (

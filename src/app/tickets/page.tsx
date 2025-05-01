@@ -1,15 +1,9 @@
-"use client";
-
 import { Heading } from "@/components/heading";
 import TicketItem from "@/features/ticket/components/ticket-item";
-import { useEffect, useState } from "react";
 import { getTickets } from "@/features/ticket/queries/get-tickets";
-import { Ticket } from "@/features/ticket/types";
-import Loading from "@/components/loading";
 
-const Tickets = () => {
-  const [tickets, setTickets] = useState<Ticket[]>([]);
-  const [loading, setLoading] = useState(false);
+const Tickets = async () => {
+  const tickets = await getTickets();
 
   const renderTickets = () => {
     return (
@@ -21,19 +15,6 @@ const Tickets = () => {
     );
   };
 
-  useEffect(() => {
-    setLoading(true);
-    getTickets()
-      .then((data) => {
-        setTickets(data as Ticket[]);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.error("Error fetching tickets:", error);
-      });
-  }, []);
-
   return (
     <div className="flex flex-1 flex-col gap-y-8">
       <Heading
@@ -42,7 +23,7 @@ const Tickets = () => {
         separator
       />
 
-      {loading ? <Loading /> : renderTickets()}
+      {renderTickets()}
     </div>
   );
 };
