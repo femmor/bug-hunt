@@ -1,20 +1,9 @@
 import { Heading } from "@/components/heading";
-import TicketItem from "@/features/ticket/components/ticket-item";
-import { getTickets } from "@/features/ticket/queries/get-tickets";
+import Loading from "@/components/loading";
+import TicketList from "@/features/ticket/components/ticket-list";
+import { Suspense } from "react";
 
-const Tickets = async () => {
-  const tickets = await getTickets();
-
-  const renderTickets = () => {
-    return (
-      <div className="flex flex-1 flex-col items-center gap-y-4 animate-fade-in-from-top">
-        {tickets.map((ticket) => (
-          <TicketItem key={ticket.id} ticket={ticket} />
-        ))}
-      </div>
-    );
-  };
-
+const Tickets = () => {
   return (
     <div className="flex flex-1 flex-col gap-y-8">
       <Heading
@@ -22,8 +11,9 @@ const Tickets = async () => {
         description="View and manage your tickets"
         separator
       />
-
-      {renderTickets()}
+      <Suspense fallback={<Loading />}>
+        <TicketList />
+      </Suspense>
     </div>
   );
 };

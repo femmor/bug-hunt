@@ -1,9 +1,10 @@
+import Loading from "@/components/loading";
 import Placeholder from "@/components/placeholder";
 import { Button } from "@/components/ui/button";
 import TicketItem from "@/features/ticket/components/ticket-item";
 import { getTicketById } from "@/features/ticket/queries/get-ticket";
 import Link from "next/link";
-import { use } from "react";
+import { Suspense, use } from "react";
 
 type TicketProps = Promise<{ ticketId: string }>;
 
@@ -27,7 +28,9 @@ const Ticket = ({ params }: { params: TicketProps }) => {
 
   return (
     <div className="flex justify-center animate-fade-in-from-top">
-      <TicketItem ticket={ticket} isDetail />
+      <Suspense fallback={<Loading />}>
+        <TicketItem ticket={ticket} isDetail />
+      </Suspense>
     </div>
   );
 };
