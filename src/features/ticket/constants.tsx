@@ -11,7 +11,7 @@ export const TICKET_ICONS = {
       <CircleCheckBig />
     </div>
   ),
-  "IN PROGRESS": (
+  IN_PROGRESS: (
     <div className="text-yellow-500">
       <Hourglass />
     </div>
