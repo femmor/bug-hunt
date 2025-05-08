@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { Ticket } from "../types";
+import { Ticket } from "@prisma/client";
 
 export const getTicketById = async (ticketId: string) => {
   const ticket = await prisma.ticket.findUnique({
