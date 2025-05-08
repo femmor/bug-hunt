@@ -20,6 +20,6 @@ export const initialTickets: Ticket[] = [
     title: "Ticket 3",
     content:
       "This is the content of ticket 3. It has a lot of information and details about the ticket. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    status: "IN PROGRESS" as const,
+    status: "IN_PROGRESS" as const,
   },
 ];
