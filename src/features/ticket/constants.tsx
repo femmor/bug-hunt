@@ -1,3 +1,4 @@
+import React from "react";
 import { CircleCheckBig, File, Hourglass } from "lucide-react";
 
 export const TICKET_ICONS = {
