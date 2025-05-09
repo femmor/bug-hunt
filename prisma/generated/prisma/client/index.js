@@ -144,7 +144,7 @@ const config = {
     isCustomOutput: true,
   },
   relativeEnvPaths: {
-    rootEnvPath: "../../../../.env",
+    rootEnvPath: null,
     schemaEnvPath: "../../../../.env",
   },
   relativePath: "../../..",
@@ -162,9 +162,9 @@ const config = {
     },
   },
   inlineSchema:
-    '// This is your Prisma schema file\n\ngenerator client {\n  provider = "prisma-client-js"\n  output   = "generated/prisma/client"\n}\n\ndatasource db {\n  provider  = "postgresql"\n  url       = env("DATABASE_URL")\n  directUrl = env("DIRECT_URL")\n}\n\nmodel Ticket {\n  id        String       @id @default(cuid())\n  createdAt DateTime     @default(now())\n  updatedAt DateTime     @updatedAt\n  title     String\n  content   String       @db.VarChar(1024)\n  status    TicketStatus @default(OPEN)\n}\n\nenum TicketStatus {\n  OPEN\n  IN_PROGRESS\n  CLOSED\n}\n',
+    'generator client {\n  provider = "prisma-client-js"\n  output   = "generated/prisma/client"\n}\n\ndatasource db {\n  provider  = "postgresql"\n  url       = env("DATABASE_URL")\n  directUrl = env("DIRECT_URL")\n}\n\nmodel Ticket {\n  id        String       @id @default(cuid())\n  createdAt DateTime     @default(now())\n  updatedAt DateTime     @updatedAt\n  title     String\n  content   String       @db.VarChar(1024)\n  status    TicketStatus @default(OPEN)\n}\n\nenum TicketStatus {\n  OPEN\n  IN_PROGRESS\n  CLOSED\n}\n',
   inlineSchemaHash:
-    "67d28a2308a7c55dda1cba1f8d783c7d7732d1791db8c1baecd527c031af8aa2",
+    "da99fe08ccba7b82c16137121d0ed46563b1dafdef46d04c2c291cc3d4abdd6a",
   copyEngine: true,
 };
 
