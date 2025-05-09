@@ -5,13 +5,20 @@ import { TICKET_ICONS } from "../constants";
 import { SquareArrowOutUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import clsx from "clsx";
-import { getTickets } from "../queries/get-tickets";
-import { getTicketById } from "../queries/get-ticket";
+// import { getTickets } from "../queries/get-tickets";
+// import { getTicketById } from "../queries/get-ticket";
 
 export interface TicketProps {
-  ticket:
-    | Awaited<ReturnType<typeof getTickets>>[number]
-    | Awaited<ReturnType<typeof getTicketById>>;
+  // ticket:
+  //   | Awaited<ReturnType<typeof getTickets>>[number]
+  //   | Awaited<ReturnType<typeof getTicketById>>;
+  // isDetail?: boolean;
+  ticket: {
+    id: string;
+    title: string;
+    content: string;
+    status: keyof typeof TICKET_ICONS;
+  };
   isDetail?: boolean;
 }
 
