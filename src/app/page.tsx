@@ -3,6 +3,7 @@ import { ticketsPath } from "@/paths";
 import Link from "next/link";
 
 const HomePage = () => {
+  console.log("Environment Variables:", process.env.DATABASE_URL);
   return (
     <div className="flex flex-1 flex-col gap-y-8">
       <Heading
