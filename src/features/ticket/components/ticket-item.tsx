@@ -1,10 +1,13 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ticketsPath } from "@/paths";
 import Link from "next/link";
 import { TICKET_ICONS } from "../constants";
-import { SquareArrowOutUpRight } from "lucide-react";
+import { LucideTrash2, SquareArrowOutUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import clsx from "clsx";
+import { deleteTicket } from "../actions/delete-ticket";
 
 export interface TicketItemProps {
   // Makes typing closer to getTickets return type
@@ -21,11 +24,26 @@ export interface TicketItemProps {
 }
 
 const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
+  const handleDeleteTicket = async () => {
+    await deleteTicket(ticket.id);
+  };
+
   const detailButton = (
     <Button variant="outline" size="icon" asChild>
       <Link href={`${ticketsPath}/${ticket.id}`}>
         <SquareArrowOutUpRight className="h-4 w-4" />
       </Link>
+    </Button>
+  );
+
+  const deleteButton = (
+    <Button
+      variant="destructive"
+      size="icon"
+      className="cursor-pointer"
+      onClick={handleDeleteTicket}
+    >
+      <LucideTrash2 className="h-4 w-4" />
     </Button>
   );
 
@@ -54,7 +72,9 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
           </span>
         </CardContent>
       </Card>
-      {!isDetail && <div className="flex flex-col gap-y-2">{detailButton}</div>}
+      <div className="flex flex-col gap-y-2">
+        {isDetail ? deleteButton : detailButton}
+      </div>
     </div>
   );
 };
