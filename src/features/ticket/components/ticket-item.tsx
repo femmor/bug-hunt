@@ -5,10 +5,10 @@ import { TICKET_ICONS } from "../constants";
 import { SquareArrowOutUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import clsx from "clsx";
-import { Ticket } from "@prisma/client";
+import { getTickets } from "../queries/get-tickets";
 
 export interface TicketItemProps {
-  ticket: Ticket;
+  ticket: Awaited<ReturnType<typeof getTickets>>[number];
   isDetail?: boolean;
 }
 
