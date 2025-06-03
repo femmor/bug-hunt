@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ticketsPath } from "@/paths";
 import Link from "next/link";
@@ -24,10 +22,6 @@ export interface TicketItemProps {
 }
 
 const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
-  const handleDeleteTicket = async () => {
-    await deleteTicket(ticket.id);
-  };
-
   const detailButton = (
     <Button variant="outline" size="icon" asChild>
       <Link href={`${ticketsPath}/${ticket.id}`}>
@@ -37,14 +31,11 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
   );
 
   const deleteButton = (
-    <Button
-      variant="destructive"
-      size="icon"
-      className="cursor-pointer"
-      onClick={handleDeleteTicket}
-    >
-      <LucideTrash2 className="h-4 w-4" />
-    </Button>
+    <form action={deleteTicket.bind(null, ticket.id)}>
+      <Button variant="destructive" size="icon" className="cursor-pointer">
+        <LucideTrash2 className="h-4 w-4" />
+      </Button>
+    </form>
   );
 
   return (
