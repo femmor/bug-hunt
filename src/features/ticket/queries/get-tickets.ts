@@ -6,5 +6,6 @@ export const getTickets = async () => {
       createdAt: "desc",
     },
   });
+
   return tickets;
 };
