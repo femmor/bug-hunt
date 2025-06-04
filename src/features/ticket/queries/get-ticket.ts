@@ -10,7 +10,7 @@ export const getTicketById = async (ticketId: string) => {
     });
 
     if (!ticket) {
-      throw new Error("Ticket not found");
+      throw new Error("We could not find the ticket you are looking for.");
     }
 
     return ticket as Ticket;
